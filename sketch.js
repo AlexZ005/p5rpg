@@ -12,32 +12,37 @@ function preload(){
   tileset = loadImage("assets/blockPack_packed.png")
   spritedata_lisa =  loadJSON("assets/Lisa.json")
   spritesheet_lisa = loadImage("assets/Lisa.png")
+  preloadDialog();
 }
 
 function setup() {
   createCanvas(400, 400);
   console.log("Game loaded")
   player = new Player();
-  setupLisa();
+  sprite_lisa = new setupSprite(spritedata_lisa,spritesheet_lisa,animation);
+  sprite_dialog = new setupSprite(spritedata_dialog,spritesheet_dialog,animation2);
+  // setupDialog();
 }
 
 function draw() {
     background(220);
-//    drawGrid();
-noSmooth();
-push();
-scale(2.5);
-drawTiles(map, 9, 20, 18, 28);
-player.draw();
-pop();
-push();
-scale(1.5);
-imageMode(CENTER)
-translate(36-5-16, 32)
-translate(18*4,14*3)
-sprite_lisa.show();
-pop();
-  }
+    drawGrid();
+    noSmooth();
+    push();
+    scale(2.5);
+    drawTiles(map, 9, 20, 18, 28);
+    player.draw();
+    pop();
+    push();
+    scale(1.5);
+    imageMode(CENTER)
+    translate(36-5-16, 32)
+    translate(18*4,14*3)
+    sprite_lisa.show();
+    pop();
+    // sprite_dialog.show();
+    drawDialog("tesat");
+}
 
 function drawGrid() {
   for (j=0; j<5;j++){
@@ -49,11 +54,11 @@ function drawGrid() {
 
 }
 
-
 let spritesheet;
 let spritedata;
 
 let animation = [];
+let animation2 = [];
 
 const separateObject = obj => {
    const res = [];
@@ -92,18 +97,18 @@ class Sprite {
   }
 }
 
-function setupLisa() {
+function setupSprite(spritedata, spritesheet,animation) {
   //createCanvas(400, 400);
-  let frames = separateObject(spritedata_lisa.frames);
+  let frames = separateObject(spritedata.frames);
   //console.log(separateObject(frames).length)
   for (let i = 0; i < frames.length; i++) {
     
     let pos = frames[i].key.frame;
     //console.log(pos.x + " " + pos.y + " " + pos.w + " " + pos.h)
-    let img = spritesheet_lisa.get(pos.x, pos.y, pos.w, pos.h);
+    let img = spritesheet.get(pos.x, pos.y, pos.w, pos.h);
     animation.push(img);
   }
-  sprite_lisa = new Sprite(animation, 0, 0, random(0.1, 0.4));
+  return new Sprite(animation, 0, 0, random(0.1, 0.4));
 }
 
 function drawTiles(map, d_cols, s_cols, tilesizex, tilesizey) {
