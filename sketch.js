@@ -13,6 +13,7 @@ function preload(){
   spritedata_lisa =  loadJSON("assets/Lisa.json")
   spritesheet_lisa = loadImage("assets/Lisa.png")
   preloadDialog();
+  preloadSpells();
 }
 
 function setup() {
@@ -22,12 +23,14 @@ function setup() {
   sprite_lisa = new setupSprite(spritedata_lisa,spritesheet_lisa,animation);
   sprite_dialog = new setupSprite(spritedata_dialog,spritesheet_dialog,animation2);
   // setupDialog();
+  setupSpells();
 }
 
 function draw() {
     background(220);
     drawGrid();
     noSmooth();
+    drawSpells();
     push();
     scale(2.5);
     drawTiles(map, 9, 20, 18, 28);
@@ -42,6 +45,7 @@ function draw() {
     pop();
     // sprite_dialog.show();
     drawDialog("tesat");
+    
 }
 
 function drawGrid() {
