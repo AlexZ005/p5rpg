@@ -294,8 +294,9 @@ class MenuItem {
     }
   
     draw() {
-  
-      image(this.img, this.x, -70, this.w, this.h);
+      if (this.angle > 180){
+      image(this.img, this.x, -75, this.w, this.h);
+    }
       if (this.angle == 45 && !(this.isRotatingLeft || this.isRotatingRight) ) {
         //console.log("BRUH");
         // image(this.name, -370, -370, 336, 44);
