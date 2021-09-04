@@ -28,7 +28,7 @@ function setup() {
 
 function draw() {
     background(220);
-    drawGrid();
+    // drawGrid();
     noSmooth();
     push();
     scale(2.5);
@@ -43,9 +43,10 @@ function draw() {
     sprite_lisa.show();
     pop();
     // sprite_dialog.show();
+    push()
     drawDialog("tesat");
+    pop()
     drawSpells();
-    
 }
 
 function drawGrid() {

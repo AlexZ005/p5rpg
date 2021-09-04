@@ -12,15 +12,15 @@ let _menuChangeSound;
 let lockedLeft = false;
 let lockedRight = false;
 
-let clickLeftX = 20;
-let clickLeftY = -80;
+let clickLeftX = 80;
+let clickLeftY = 200;
 
-let clickRightX = 180;
-let clickRightY = -80;
+let clickRightX = 280;
+let clickRightY = 200;
 
 //these coordinates relate to the Menu Selection Image (four "L" shaped bars)
 let selectionX = 408;
-let selectionY = 260;
+let selectionY = 450;
 
 function preloadSpells() {
   _imgSelection = loadImage("spells/img/menuSelector2_Large.png");
@@ -186,10 +186,9 @@ class MenuItem {
   
     draw() {
       if (this.angle > 180){
-      image(this.img, this.x, -75, this.w, this.h);
+      image(this.img, this.x+width/2, height/1.8, this.w, this.h);
     }
-      if (this.angle == 45 && !(this.isRotatingLeft || this.isRotatingRight) ) {
-      }
+
     }
   
   
