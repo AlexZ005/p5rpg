@@ -30,7 +30,6 @@ function draw() {
     background(220);
     drawGrid();
     noSmooth();
-    drawSpells();
     push();
     scale(2.5);
     drawTiles(map, 9, 20, 18, 28);
@@ -45,6 +44,7 @@ function draw() {
     pop();
     // sprite_dialog.show();
     drawDialog("tesat");
+    drawSpells();
     
 }
 

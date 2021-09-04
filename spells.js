@@ -12,17 +12,15 @@ let _menuChangeSound;
 let lockedLeft = false;
 let lockedRight = false;
 
-let clickLeftX = 80;
-let clickLeftY = 110;
+let clickLeftX = 20;
+let clickLeftY = -80;
 
-let clickRightX = 280;
-let clickRightY = 110;
+let clickRightX = 180;
+let clickRightY = -80;
 
 //these coordinates relate to the Menu Selection Image (four "L" shaped bars)
 let selectionX = 408;
 let selectionY = 260;
-let selectionW = 70;
-let selectionH = 68;
 
 function preloadSpells() {
   _imgSelection = loadImage("spells/img/menuSelector2_Large.png");
@@ -82,7 +80,8 @@ function drawSpells() {
 
   //AZ DRAW SELECTOR
   image(_imgSelection, selectionX/2-10, selectionY/2-5, 70/2, 68/2);
-    translate(width/2, height/2);
+  // push();  
+  //translate(width/2, height/2);
 
   for (var i = 0; i < _menu.items.length; i++) {
     //fill(random(0,255),random(0,255),random(0,255));
@@ -90,12 +89,12 @@ function drawSpells() {
     _menu.items[i].update(x1, x2);
     _menu.items[i].draw();
   }
-
+  // pop();
 }
 
 function mousePressed() {
   // Check if mouse is inside the circle images
-
+  console.log(mouseX, mouseY, clickLeftX+32, clickLeftY+32)
   let b1 = dist(mouseX, mouseY, clickLeftX+32, clickLeftY+32);
   let b2 = dist(mouseX, mouseY, clickRightX+32, clickRightY+32);
 
