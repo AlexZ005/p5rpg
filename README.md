@@ -15,6 +15,11 @@ Spell menu: https://editor.p5js.org/mikedasilva7/full/5AAG06Wbd
   
 Player grid: https://codepen.io/Twinbee/pen/bGbXarp  
   
+  Part 4: Drawing grid
+  https://stackoverflow.com/questions/58793198/how-can-i-draw-tiles-on-canvas-using-p5-js
+Learn how to draw a 2d tile map in Javascript and HTML5!
+https://www.youtube.com/watch?v=WMTv6QsAp0I
+
 # Useful Articles
   Code performance: https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance  
   
